@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,4 +46,44 @@
 
       <div id="vfeatures-status" class="status-line">No sample loaded yet — V1–V28 required.</div>
 
-      <button
+      <button id="investigate-btn" class="btn-primary">Investigate Transaction</button>
+
+      <div id="error-box" class="error-box hidden"></div>
+    </section>
+
+    <section class="panel result-panel">
+      <h2>Investigation Result</h2>
+
+      <div id="result-empty" class="result-empty">
+        Submit a transaction to see the fraud probability, risk tier, and AI-generated investigation report here.
+      </div>
+
+      <div id="result-content" class="hidden">
+        <div class="result-summary">
+          <div id="prob-circle" class="prob-circle">
+            <span id="prob-value">0%</span>
+          </div>
+          <div>
+            <div id="flag-status" class="flag-status"></div>
+            <div id="risk-tier" class="risk-tier"></div>
+          </div>
+        </div>
+
+        <div id="report-section" class="hidden">
+          <h3>Investigation Report</h3>
+          <div id="report-text" class="report-box"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    Gotcha! — internal fraud triage demo. Not for production use.
+  </footer>
+
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
