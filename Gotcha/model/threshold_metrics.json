@@ -1,0 +1,73 @@
+{
+  "model": "XGBoost (RandomizedSearchCV-tuned, trained on SMOTE-balanced data)",
+  "evaluated_on": "Held-out validation set \u2014 42,721 transactions, 74 actual frauds (0.173% real-world fraud rate, untouched by SMOTE)",
+  "total_transactions": 42721,
+  "total_actual_fraud": 74,
+  "currently_deployed_threshold": 0.7,
+  "thresholds": [
+    {
+      "threshold": 0.3,
+      "precision": 0.7792,
+      "recall": 0.8108,
+      "flagged_count": 77,
+      "true_positives": 60,
+      "false_positives": 17,
+      "false_negatives": 14
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.8219,
+      "recall": 0.8108,
+      "flagged_count": 73,
+      "true_positives": 60,
+      "false_positives": 13,
+      "false_negatives": 14
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.8451,
+      "recall": 0.8108,
+      "flagged_count": 71,
+      "true_positives": 60,
+      "false_positives": 11,
+      "false_negatives": 14
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.8824,
+      "recall": 0.8108,
+      "flagged_count": 68,
+      "true_positives": 60,
+      "false_positives": 8,
+      "false_negatives": 14
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.8955,
+      "recall": 0.8108,
+      "flagged_count": 67,
+      "true_positives": 60,
+      "false_positives": 7,
+      "false_negatives": 14
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.9062,
+      "recall": 0.7838,
+      "flagged_count": 64,
+      "true_positives": 58,
+      "false_positives": 6,
+      "false_negatives": 16
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.95,
+      "recall": 0.7703,
+      "flagged_count": 60,
+      "true_positives": 57,
+      "false_positives": 3,
+      "false_negatives": 17
+    }
+  ],
+  "note": "precision/recall/flagged_count are taken directly from the training notebook (Cell 8 output). false_positives/false_negatives are derived: FP = flagged_count - true_positives, FN = total_actual_fraud - true_positives. Cost-per-error values used in the dashboard are illustrative defaults the user should replace with real business figures."
+}
