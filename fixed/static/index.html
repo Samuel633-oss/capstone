@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gotcha! — Fraud Investigator</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="app-header">
+    <div class="logo">
+      <span class="logo-mark">🕵️</span>
+      <span class="logo-text">Gotcha!</span>
+    </div>
+    <p class="tagline">Transaction Fraud Classifier + AI Investigator Agent</p>
+    <nav class="app-nav">
+      <a href="/" class="nav-link active">Investigate</a>
+      <a href="/dashboard" class="nav-link">Threshold &amp; Cost Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+
+    <section class="panel form-panel">
+      <h2>Submit a Transaction</h2>
+
+      <div class="field-row">
+        <label for="account_id">Account ID</label>
+        <input type="text" id="account_id" value="ACC-1001" />
+        <p class="field-hint">Demo accounts with real seeded history: ACC-1001 – ACC-1005. Any other ID starts with no history.</p>
+      </div>
+
+      <div class="field-row two-col">
+        <div>
+          <label for="time_val">Time (s)</label>
+          <input type="number" id="time_val" value="50000" />
+        </div>
+        <div>
+          <label for="amount_val">Amount ($)</label>
+          <input type="number" id="amount_val" step="0.01" value="1.50" />
+        </div>
+      </div>
+
+      <div class="sample-buttons">
+        <button class="btn-sample" data-sample="normal">Load Normal Sample</button>
+        <button class="btn-sample" data-sample="fraud">Load Fraud-like Sample</button>
+      </div>
+
+      <div id="vfeatures-status" class="status-line">No sample loaded yet — V1–V28 required.</div>
+
+      <button id="investigate-btn" class="btn-primary">Investigate Transaction</button>
+
+      <div id="error-box" class="error-box hidden"></div>
+    </section>
+
+    <section class="panel result-panel">
+      <h2>Investigation Result</h2>
+
+      <div id="result-empty" class="result-empty">
+        Submit a transaction to see the fraud probability, risk tier, and AI-generated investigation report here.
+      </div>
+
+      <div id="result-content" class="hidden">
+        <div class="result-summary">
+          <div id="prob-circle" class="prob-circle">
+            <span id="prob-value">0%</span>
+          </div>
+          <div>
+            <div id="flag-status" class="flag-status"></div>
+            <div id="risk-tier" class="risk-tier"></div>
+          </div>
+        </div>
+
+        <div id="history-section" class="hidden">
+          <h3>Account History Pulled by Agent</h3>
+          <div id="history-summary" class="history-summary"></div>
+          <div id="history-table-wrap">
+            <table id="history-table" class="history-table">
+              <thead>
+                <tr><th>Time (s)</th><th>Amount ($)</th></tr>
+              </thead>
+              <tbody id="history-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="report-section" class="hidden">
+          <h3>Investigation Report</h3>
+          <div id="report-text" class="report-box"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    Gotcha! — internal fraud triage demo. Not for production use.
+  </footer>
+
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
